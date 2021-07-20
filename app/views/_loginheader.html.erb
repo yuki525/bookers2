@@ -1,0 +1,22 @@
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <%= link_to "Bookers", "/", class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <li> <%= link_to "Home", users_path(current_user.id), class: "fas fa-home nav-link text-light" %>
+              <!--<a class="fas fa-home nav-link text-light" href="/users/5472"> Home</a></li>-->
+            <li> <%= link_to "Users", "/users", class: "fas fa-users nav-link text-light" %>
+              <!--<a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>-->
+            <li> <%= link_to "Books", "/books", class: "fas fa-book-open nav-link text-light" %>
+              <!--<a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>-->
+            <li> <%= link_to "logout", "/users/sign_out", class: "fas fa-sign-out-alt nav-link text-light", rel: "nofollow", method: :delete %>
+              <!--<a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a></li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>

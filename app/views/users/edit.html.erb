@@ -1,0 +1,47 @@
+<body>
+<%= render '/loginheader' %>
+
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2>User info</h2>
+    <!--<form enctype="multipart/form-data" action="/users/5472" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="CY5PFfec0fiUXHyAKbJ4Po6LIvqc+OXXr1cz6ZNSPNp3z0LHXXV2g+/NQyO/rziInuyb65qTQpsT5FPCicER9w==">-->
+
+        <%= form_with model:@user, local:true do |f| %>
+        <div class="form-group">
+          <label for="inputName">Name</label>
+          <%= f.text_field :name, class:"form-control name", autofocus: true, id:"inputName", placeholder:"名前"%>
+        </div>
+
+        <div class="form-group">
+          <label for="inputImage">Image</label>
+          <%= f.attachment_field :profile_image, class:"form-control-file user_image", placeholder: "プロフィール画像" %>
+        </div>
+
+        <div class="form-group">
+          <label for="inputIntroduction">Introduction</label>
+          <%= f.text_field :introduction, class:"form-control introduction", autofocus: true, id:"inputIntroduction", placeholder:"紹介文"%>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Update User", class:"btn btn-secondary" %>
+        <!--<input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">-->
+        </div>
+
+        <% end %>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= render '/footer' %>
+
+
+
+</body>

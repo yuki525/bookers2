@@ -1,0 +1,54 @@
+<body>
+  <%= render '/loginheader' %>
+
+  <main>
+    <%= render '/rightsideber' %>
+
+
+  <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <% @book.each do |book| %>
+  <tbody>
+      <tr>
+        <td>
+          <%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, format: 'jpeg'%>
+            <!--<a href="/users/5467">-->
+            <!--<img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg">-->
+          </a>
+        </td>
+
+        <td>
+          <%= link_to book_path(book.id) do %>
+           <p><%= book.title %></p>
+          <!--<a class="book_5072" href="/books/5072">リーダブルコード</a>-->
+           <% end %>
+        </td>
+        <td>
+           <p><%= book.body %></p>
+          <!--より良いコードを書くためのシンプルで実践的なテクニック。-->
+        </td>
+      </tr>
+
+  </tbody>
+  <% end %>
+</table>
+    </div>
+  </div>
+</div>
+      </main>
+
+<%= render '/footer' %>
+
+
+
+</body>

@@ -1,0 +1,34 @@
+<body>
+  <%= render '/loginheader' %>
+
+      <main>
+        <p id="notice"></p>
+        <div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		<h1>Editing Book</h1>
+
+  		<form action="/books/5077" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="SHcZ71hW6xaaCctCRS1jPGpEVsLPtyia94rHlOCsuZITu9p953DR4CKLdiG0z8jxQ/pmCRpAQEtSr09Z+bXbBA==">
+  <div class="form-group">
+    <label for="book_title">Title</label>
+    <input class="form-control book_title" type="text" value="s" name="book[title]" id="book_title">
+  </div>
+  <div class="form-group">
+    <label for="book_opinion">Opinion</label>
+    <textarea class="form-control book_body" name="book[body]" id="book_body">s</textarea>
+  </div>
+  <div class="form-group">
+    <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
+  </div>
+</form>
+  		<a class="book_5077" href="/books/5077">Show</a> |
+  		<a class="back" href="/books">Back</a>
+  </div>
+</div>
+      </div></main>
+
+<%= render '/footer' %>
+
+
+
+</body>
