@@ -1,8 +1,15 @@
 <body>
   <%= render '/loginheader' %>
 
-  <main>
-    <%= render '/rightsideber' %>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のerrorが発生しました
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<main>
+    <%= render '/rightsideber', user: @user, books: @book %>
 
 
   <div class="col-md-8 offset-md-1">
@@ -17,7 +24,7 @@
     </tr>
   </thead>
 
-  <% @book.each do |book| %>
+  <% @books2.each do |book| %>
   <tbody>
       <tr>
         <td>
@@ -31,7 +38,7 @@
           <%= link_to book_path(book.id) do %>
            <p><%= book.title %></p>
           <!--<a class="book_5072" href="/books/5072">リーダブルコード</a>-->
-           <% end %>
+          <% end %>
         </td>
         <td>
            <p><%= book.body %></p>
@@ -45,7 +52,7 @@
     </div>
   </div>
 </div>
-      </main>
+</main>
 
 <%= render '/footer' %>
 

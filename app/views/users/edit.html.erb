@@ -9,6 +9,15 @@
         <h2>User info</h2>
     <!--<form enctype="multipart/form-data" action="/users/5472" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="CY5PFfec0fiUXHyAKbJ4Po6LIvqc+OXXr1cz6ZNSPNp3z0LHXXV2g+/NQyO/rziInuyb65qTQpsT5FPCicER9w==">-->
 
+        <% if @user.errors.any? %>
+        <%= @user.errors.count %>件のerrorが発生しました</br>
+          <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
+
+
+
         <%= form_with model:@user, local:true do |f| %>
         <div class="form-group">
           <label for="inputName">Name</label>

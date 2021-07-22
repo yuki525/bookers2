@@ -7,7 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-            <li> <%= link_to "Home", users_path(current_user.id), class: "fas fa-home nav-link text-light" %>
+            <li> <%= link_to "Home", user_path(current_user.id), class: "fas fa-home nav-link text-light" %>
               <!--<a class="fas fa-home nav-link text-light" href="/users/5472"> Home</a></li>-->
             <li> <%= link_to "Users", "/users", class: "fas fa-users nav-link text-light" %>
               <!--<a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>-->

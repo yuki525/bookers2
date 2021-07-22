@@ -2,75 +2,41 @@
   <%= render '/loginheader' %>
 
 
-<main>
-  <%= render '/rightsideber' %>
+  <main>
+    <%= render '/rightsideber', user: @user, books: @books %>
 
-
-      <h2 class="mt-3">New book</h2>
-      <form action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="B2YueFWDfuRhg/bcnq9RU3R0pBANB2CVhcq1TV81CB2KlHvyB5kpsWjqNpBFPNIrF99A4mLHCOwEgbClPLpYNA==">
-  <div class="form-group">
-    <label for="book_title">Title</label>
-    <input class="form-control book_title" type="text" name="book[title]" id="book_title">
-  </div>
-  <div class="form-group">
-    <label for="book_opinion">Opinion</label>
-    <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
-  </div>
-  <div class="form-group">
-    <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
-  </div>
-</form>
-    </div>
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
       <table class="table">
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>ddddd</td>
-        <td><a class="user_5471" href="/users/5471">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>yu</td>
-        <td><a class="user_5472" href="/users/5472">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>Olivia</td>
-        <td><a class="user_5467" href="/users/5467">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>サンプルタロウ</td>
-        <td><a class="user_5468" href="/users/5468">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>Lucas</td>
-        <td><a class="user_5469" href="/users/5469">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg"></td>
-        <td>gg</td>
-        <td><a class="user_5470" href="/users/5470">Show</a></td>
-      </tr>
-  </tbody>
-</table>
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
+        <% @users.each do |user| %>
+        <tbody>
+          <tr>
+            <td>
+              <%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg'%>
+            </td>
+            <td>
+              <%= user.name %>
+            </td>
+            <td>
+              <%= link_to "Show", user_path(user.id)  %>
+            <!--<a class="user_5471" href="/users/5471">Show</a>-->
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
     </div>
-  </div>
-</div>
-      </main>
+  </main>
 
-<%= render '/footer' %>
+  <%= render '/footer' %>
 
 
 
