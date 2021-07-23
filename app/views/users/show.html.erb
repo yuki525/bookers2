@@ -1,7 +1,7 @@
 <body>
   <%= render '/loginheader' %>
 
-<%= flash[:notice] %>
+
 
       <main>
 <%= render '/rightsideber', user: @user, books: @books %>
@@ -23,7 +23,9 @@
   <tbody>
      <tr>
             <td>
+              <%= link_to user_path(@user) do %>
               <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg'%>
+              <% end %>
             </td>
         <td>
           <%= link_to book_path(book.id) do %>

@@ -20,7 +20,7 @@
         <tbody>
           <tr>
             <td>
-              <%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg'%>
+              <%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.png", size: '50x50' %>
             </td>
             <td>
               <%= user.name %>
