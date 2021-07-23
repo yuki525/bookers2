@@ -1,52 +1,45 @@
-<body>
-  <%= render '/loginheader' %>
+<%= render '/loginheader' %>
 
+<main>
+  <%= render '/rightsideber', user: @user, books: @books %>
 
+  <div class="col-md-8 offset-md-1">
+    <h2>Books</h2>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-      <main>
-<%= render '/rightsideber', user: @user, books: @books %>
-
-
-    <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
-      <table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <% @books1.each do |book| %>
-  <tbody>
-     <tr>
-            <td>
-              <%= link_to user_path(@user) do %>
+    <% @books1.each do |book| %>
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to user_path(@user) do %>
               <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg'%>
-              <% end %>
-            </td>
-        <td>
-          <%= link_to book_path(book.id) do %>
-           <p><%= book.title %></p>
-          <!--<a class="book_5072" href="/books/5072">リーダブルコード</a>-->
-          <% end %>
-        </td>
-        <td>
-           <p><%= book.body %></p>
-          <!--より良いコードを書くためのシンプルで実践的なテクニック。-->
-        </td>
-      </tr>
-  </tbody>
-  <% end %>
-</table>
-    </div>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to book_path(book.id) do %>
+              <p><%= book.title %></p>
+              <!--<a class="book_5072" href="/books/5072">リーダブルコード</a>-->
+            <% end %>
+          </td>
+          <td>
+            <p><%= book.body %></p>
+            <!--より良いコードを書くためのシンプルで実践的なテクニック。-->
+          </td>
+        </tr>
+      </tbody>
+    <% end %>
+    </table>
   </div>
-</div>
-      </main>
+</main>
 
 <%= render '/footer' %>
 
 
-</body>

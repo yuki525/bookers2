@@ -1,53 +1,51 @@
-<body>
-  <%= render '/loginheader' %>
+
+<%= render '/loginheader' %>
 
   <% if @book.errors.any? %>
-  <%= @book.errors.count %>件のerrorが発生しました
-  <% @book.errors.full_messages.each do |message| %>
+    <%= @book.errors.count %>件のerrorが発生しました
+    <% @book.errors.full_messages.each do |message| %>
     <%= message %>
+    <% end %>
   <% end %>
-<% end %>
 
-      <main>
+<main>
         <p id="notice"></p>
-        <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-  		<h1>Editing Book</h1>
-    <%= form_with model:@book, local:true do |f| %>
-  		<!--<form action="/books/5077" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="SHcZ71hW6xaaCctCRS1jPGpEVsLPtyia94rHlOCsuZITu9p953DR4CKLdiG0z8jxQ/pmCRpAQEtSr09Z+bXbBA==">-->
-  <div class="form-group">
-    <label for="book_title">Title</label>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		  <h1>Editing Book</h1>
+        <%= form_with model:@book, local:true do |f| %>
+    		  <!--<form action="/books/5077" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="SHcZ71hW6xaaCctCRS1jPGpEVsLPtyia94rHlOCsuZITu9p953DR4CKLdiG0z8jxQ/pmCRpAQEtSr09Z+bXbBA==">-->
+          <div class="form-group">
+            <label for="book_title">Title</label>
 
-    <%= f.text_field :title, class:"form-control book_title", autofocus: true, id:"inputTitle" %>
-    <!--<input class="form-control book_title" type="text" value="s" name="book[title]" id="book_title">-->
-  </div>
-  <div class="form-group">
-    <label for="book_opinion">Opinion</label>
-    <%= f.text_area :body, class:"form-control book_body", autofocus: true, id:"inputBody" %>
-    <!--<textarea class="form-control book_body" name="book[body]" id="book_body">s</textarea>-->
-  </div>
+            <%= f.text_field :title, class:"form-control book_title", autofocus: true, id:"inputTitle" %>
+            <!--<input class="form-control book_title" type="text" value="s" name="book[title]" id="book_title">-->
+          </div>
+          <div class="form-group">
+            <label for="book_opinion">Opinion</label>
+            <%= f.text_area :body, class:"form-control book_body", autofocus: true, id:"inputBody" %>
+            <!--<textarea class="form-control book_body" name="book[body]" id="book_body">s</textarea>-->
+          </div>
 
-
-  <div class="form-group">
-    <%= f.submit "Update Book", class:"btn btn-secondary" %>
-    <!--<input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">-->
-  </div>
- <% end %>
-      <div>
-      <%= link_to "Show", book_path(@book) %>
-  		<!--<a class="book_5077" href="/books/5077">Show</a> |-->
-  		|
-  		<%= link_to "Back", books_path %>
-  		<!--<a class="back" href="/books">Back</a>-->
-  		</div>
-  </div>
-</div>
+          <div class="form-group">
+            <%= f.submit "Update Book", class:"btn btn-secondary" %>
+            <!--<input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">-->
+          </div>
+        <% end %>
+        <div>
+          <%= link_to "Show", book_path(@book) %>
+        		<!--<a class="book_5077" href="/books/5077">Show</a> |-->
+        		|
+        	<%= link_to "Back", books_path %>
+        		<!--<a class="back" href="/books">Back</a>-->
+        </div>
       </div>
-      </main>
+    </div>
+  </div>
+</main>
 
 <%= render '/footer' %>
 
 
 
-</body>
