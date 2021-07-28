@@ -6,13 +6,14 @@ class BookCommentsController < ApplicationController
     @book_comment = BookComment.new
 
     book = Book.find(params[:book_id])
-    comment = current_user.book_comment.new(book_params)
-    comment.book_id = book.id
+    @comment = current_user.book_comment.new(book_params)
+    @comment.book_id = book.id
 
-    if comment.save
+    if @comment.save
     redirect_to book_path(book)
     else
-      render template: "books/show"
+
+      render "books/show"
     end
   end
 
