@@ -33,6 +33,9 @@
             <p><%= book.body %></p>
             <!--より良いコードを書くためのシンプルで実践的なテクニック。-->
           </td>
+           <td>
+            <p><%= "コメント数: #{book.book_comments.count} " %></p>
+          </td>
         </tr>
       </tbody>
     <% end %>
