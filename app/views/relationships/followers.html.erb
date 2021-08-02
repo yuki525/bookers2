@@ -1,13 +1,9 @@
+ <%= render '/loginheader' %>
 
-  <%= render '/loginheader' %>
-
-
-  <main>
-    <%= render '/rightsideber', user: @user, books: @books %>
-
-    <div class="col-md-8 offset-md-1">
-      <h2>Users</h2>
-      <table class="table">
+<main>
+  <h1>Follower Users</h1>
+</main>
+<table class="table">
         <thead>
           <tr>
             <th>image</th>
@@ -49,10 +45,6 @@
         </tbody>
         <% end %>
       </table>
-    </div>
-  </main>
-
-  <%= render '/footer' %>
 
 
-
+ <%= render '/footer' %>
