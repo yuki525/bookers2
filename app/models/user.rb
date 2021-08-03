@@ -24,14 +24,21 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  def self.looks(searches, words)
-    if searches == "perfect_match"
-      @user = User.where("name LIKE ?", "#{words}")
-    else
-      @user = User.where("name LIKE ?", "%#{words}%")
-    end
-  end
 
+
+  def self.looks(searches, words)
+                if searches == "forward_match"
+                        @user = User.where("name LIKE ?", "#{words}%")
+                elsif searches == "backward_match"
+                        @user = User.where("name LIKE ?", "%#{words}")
+                elsif searches == "perfect_match"
+                        @user = User.where("name LIKE ?", "#{words}")
+                elsif searches == "partial_match"
+                        @user = User.where("name LIKE ?", "%#{words}%")
+                else
+                        @user = User.all
+                end
+  end
 
   attachment :profile_image
 

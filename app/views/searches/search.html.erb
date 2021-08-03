@@ -1,3 +1,7 @@
+<%= render '/loginheader' %>
+
+<%= render '/search' %>
+
 <% if @range == "User" %>
 <h1>ユーザー検索結果</h1>
 <p><%=  params[:word]  %>　検索</p>
@@ -65,3 +69,5 @@
       <% end %>
     </table>
     <% end %>
+
+    <%= render '/footer' %>
